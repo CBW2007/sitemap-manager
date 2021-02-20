@@ -18,5 +18,14 @@
   "bugs": {
     "url": "https://github.com/CBW2007/sitemap-manager/issues"
   },
-  "homepage": "https://github.com/CBW2007/sitemap-manager#readme"
+  "homepage": "https://github.com/CBW2007/sitemap-manager#readme",
+  "dependencies": {
+    "moment": "^2.29.1",
+    "pify": "^5.0.0",
+    "xml": "^1.0.1"
+  },
+  "devDependencies": {
+    "@types/pify": "^5.0.0",
+    "@types/xml": "^1.0.5"
+  }
 }
