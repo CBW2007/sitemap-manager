@@ -1,0 +1,22 @@
+{
+  "name": "sitemap-manager",
+  "version": "1.0.0",
+  "description": "An easy way to create sitemaps!",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CBW2007/sitemap-manager.git"
+  },
+  "keywords": [
+    "sitemap"
+  ],
+  "author": "CBW2007 <2337118038@qq.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/CBW2007/sitemap-manager/issues"
+  },
+  "homepage": "https://github.com/CBW2007/sitemap-manager#readme"
+}
