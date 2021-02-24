@@ -3,10 +3,10 @@ import xml from 'xml'
 import moment from 'moment'
 import path from 'path'
 
-exports.CreateSitemap = async function CreateSitemap (name: string, pathPrefix:string, siteURL:string, data: any, pathResolver: (data: any)=>string, reporter:any): Promise<void> {
+exports.CreateSitemap = async function CreateSitemap (name, pathPrefix, siteURL, data, pathResolver, reporter) {
   let xmlData = ''
   const lastModified = moment(new Date(), moment.ISO_8601).toISOString()
-  data.forEach((node:any) => {
+  data.forEach((node) => {
     xmlData = xmlData + xml({
       url: [
         { loc: new URL(path.join(pathPrefix, pathResolver(node)), siteURL).toString() },

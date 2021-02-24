@@ -1,7 +1,7 @@
 import * as utils from './utils'
 import path from 'path'
 
-export default async function CreateSitemapStylesheet (siteUrl:string, pathPrefix:string):Promise<void> {
+export default async function CreateSitemapStylesheet (siteUrl, pathPrefix) {
   const siteRegex = /(\{\{blog-url\}\})/g
 
   // Get our stylesheet template
