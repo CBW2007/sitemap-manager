@@ -2,8 +2,9 @@
   "name": "sitemap-manager",
   "version": "1.0.0",
   "description": "An easy way to create sitemaps!",
-  "main": "index.js",
+  "main": "dist/index.js",
   "scripts": {
+    "build": "babel src -d dist",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -25,6 +26,9 @@
     "xml": "^1.0.1"
   },
   "devDependencies": {
+    "@babel/cli": "^7.13.0",
+    "@babel/core": "^7.13.1",
+    "@babel/preset-env": "^7.13.5",
     "@types/pify": "^5.0.0",
     "@types/xml": "^1.0.5"
   }
