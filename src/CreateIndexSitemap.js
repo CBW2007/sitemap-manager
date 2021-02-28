@@ -8,7 +8,7 @@ export default async function CreateIndexSitemap (pathPrefix, siteURL, data, rep
   const lastModified = moment(new Date(), moment.ISO_8601).toISOString()
   data.forEach((node) => {
     xmlData = xmlData + xml({
-      url: [
+      sitemap: [
         { loc: new URL(path.join(pathPrefix, node), siteURL).toString() },
         { lastmod: lastModified },
       ],
