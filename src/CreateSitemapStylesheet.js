@@ -1,7 +1,7 @@
 import * as utils from './utils'
 import path from 'path'
 
-export default async function CreateSitemapStylesheet (siteUrl, pathPrefix) {
+export default async function CreateSitemapStylesheet (pathPrefix, siteUrl) {
 
   // Replace the `{{blog-url}}` variable with our real site URL
   const sitemapStylesheet = utils.xmlStylesheetTemplate(new URL(path.join(pathPrefix, 'sitemap.xml'), siteUrl).toString())
