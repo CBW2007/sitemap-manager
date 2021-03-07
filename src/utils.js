@@ -72,7 +72,7 @@ export const xmlStylesheetTemplate = (url) => { return (
                 <div id="content">
                     <h1>XML Sitemap</h1>
                     <p class="desc">
-                        Advanced Sitemap for search engine consumption, by <a href="https://ghost.org">Ghost</a>.
+                        Advanced Sitemap for search engine consumption, powered by <a href="https://github.com/CBW2007/sitemap-manager">sitemap manager</a>, stylesheet by <a href="https://ghost.org">Ghost</a>.
                     </p>
                     <xsl:if test="count(sitemap:sitemapindex/sitemap:sitemap) &gt; 0">
                         <table id="sitemap" cellpadding="3">
