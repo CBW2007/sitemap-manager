@@ -171,7 +171,7 @@ const data=JSON.parse(`
 }`).data
 
 const siteURL = data.site.siteMetadata.siteUrl
-const pathPrefix = ''
+const pathPrefix = '/aaa/'
 const reporter = {
   panicOnBuild: (msg) => {console.log(msg)}
 }
