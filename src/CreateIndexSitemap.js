@@ -3,7 +3,7 @@ import xml from 'xml'
 import moment from 'moment'
 import path from 'path'
 
-export default async function CreateIndexSitemap (outFile, pathPrefix, siteURL, data, reporter) {
+export default function CreateIndexSitemap (outFile, pathPrefix, siteURL, data, reporter) {
   let xmlData = ''
   const lastModified = moment(new Date(), moment.ISO_8601).toISOString()
   data.forEach((node) => {
@@ -16,8 +16,8 @@ export default async function CreateIndexSitemap (outFile, pathPrefix, siteURL, 
   })
   xmlData = utils.sitemapIndexTemplate(xmlData)
   try {
-    await utils.writeFile(outFile, xmlData)
-  } catch (error) {
+    utils.writeFile(outFile, xmlData)
+  } catch (e) {
     reporter.panicOnBuild('Failed to write sitemap file.')
   }
 }

@@ -177,15 +177,15 @@ const reporter = {
 }
 
 const init = async () => {
-  if (await exists('public'))
+  if (exists('public'))
   {
     console.log("delete files from previous test")
-    await rmDir('public', {
+    rmDir('public', {
       recursive: true
     })
   }
   console.log('create public folder')
-  await mkDir('public')
+  mkDir('public')
 }
 const main = () => {
   console.log('create sitemaps')

@@ -3,7 +3,7 @@ import xml from 'xml'
 import moment from 'moment'
 import path from 'path'
 
-export default async function CreateSitemap (outFile, pathPrefix, siteURL, data, pathResolver, reporter) {
+export default function CreateSitemap (outFile, pathPrefix, siteURL, data, pathResolver, reporter) {
   let xmlData = ''
   const lastModified = moment(new Date(), moment.ISO_8601).toISOString()
   data.forEach((node) => {
@@ -16,8 +16,8 @@ export default async function CreateSitemap (outFile, pathPrefix, siteURL, data,
   })
   xmlData = utils.sitemapTemplate(xmlData)
   try {
-    await utils.writeFile(outFile, xmlData)
-  } catch (error) {
+    utils.writeFile(outFile, xmlData)
+  } catch (e) {
     reporter.panicOnBuild(`Failed to write sitemap file.`)
   }
 }
