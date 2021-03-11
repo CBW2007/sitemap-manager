@@ -1,7 +1,7 @@
 import * as utils from './utils'
 import path from 'path'
 
-export default function CreateSitemapStylesheet (outFile, pathPrefix, siteUrl, reporter) {
+export default function CreateSitemapStylesheet (outFile, pathPrefix, siteUrl) {
 
   // Replace the `{{blog-url}}` variable with our real site URL
   const sitemapStylesheet = utils.xmlStylesheetTemplate(new URL(path.join(pathPrefix, 'sitemap.xml'), siteUrl).toString())
@@ -11,6 +11,6 @@ export default function CreateSitemapStylesheet (outFile, pathPrefix, siteUrl, r
   try {
     utils.writeFile(outFile, sitemapStylesheet)
   } catch (e) {
-    reporter.panicOnBuild(`Failed to write xsl file.`)
+    throw new Error(`Failed to write ${outFile}:\n  ${e.message}`)
   }
 }

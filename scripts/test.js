@@ -172,66 +172,54 @@ const data=JSON.parse(`
 
 const siteURL = data.site.siteMetadata.siteUrl
 const pathPrefix = '/aaa/'
-const reporter = {
-  panicOnBuild: (msg) => {console.log(msg)}
-}
 
-const init = async () => {
-  if (exists('public'))
-  {
-    console.log("delete files from previous test")
-    rmDir('public', {
-      recursive: true
-    })
-  }
-  console.log('create public folder')
-  mkDir('public')
+if (exists('public'))
+{
+  console.log("delete files from previous test")
+  rmDir('public', {
+    recursive: true
+  })
 }
-const main = () => {
-  console.log('create sitemaps')
-  CreateSitemap(
-    path.resolve('./public/sitemap-articles.xml'),
-    pathPrefix,
-    siteURL,
-    data.postsQuery.edges,
-    (data) => { return data.node.fields.slug },
-    reporter,
-  )
-  CreateSitemap(
-    path.resolve('./public/sitemap-logs.xml'),
-    pathPrefix,
-    siteURL,
-    data.postsQuery.edges,
-    (data) => { return data.node.fields.slug + 'changelog/' },
-    reporter,
-  )
-  CreateSitemap(
-    path.resolve('./public/sitemap-tags.xml'),
-    pathPrefix,
-    siteURL,
-    data.tagsQuery.group,
-    (data) => { return `/tags/${data.fieldValue}/` },
-    reporter,
-  )
-  CreateSitemap(
-    path.resolve('./public/sitemap-pages.xml'),
-    pathPrefix,
-    siteURL,
-    ['/pages/', '/settings/'],
-    (data) => { return data },
-    reporter,
-  )
-  CreateIndexSitemap(
-    path.resolve('./public/sitemap.xml'),
-    pathPrefix,
-    siteURL,
-    ['sitemap-pages.xml', 'sitemap-articles.xml', 'sitemap-logs.xml', 'sitemap-tags.xml'],
-    reporter,
-  )
-  CreateSitemapStylesheet(
-    path.resolve('./public/sitemap.xsl'),
-    pathPrefix,
-    siteURL,
-  )
-}
-init().then(main).catch((e) => { console.error(e) })
+console.log('create public folder')
+mkDir('public')
+
+console.log('create sitemaps')
+CreateSitemap(
+  path.resolve('./public/sitemap-articles.xml'),
+  pathPrefix,
+  siteURL,
+  data.postsQuery.edges,
+  (data) => { return data.node.fields.slug },
+)
+CreateSitemap(
+  path.resolve('./public/sitemap-logs.xml'),
+  pathPrefix,
+  siteURL,
+  data.postsQuery.edges,
+  (data) => { return data.node.fields.slug + 'changelog/' },
+)
+CreateSitemap(
+  path.resolve('./public/sitemap-tags.xml'),
+  pathPrefix,
+  siteURL,
+  data.tagsQuery.group,
+  (data) => { return `/tags/${data.fieldValue}/` },
+)
+CreateSitemap(
+  path.resolve('./public/sitemap-pages.xml'),
+  pathPrefix,
+  siteURL,
+  ['/pages/', '/settings/'],
+  (data) => { return data },
+)
+CreateIndexSitemap(
+  path.resolve('./public/sitemap.xml'),
+  pathPrefix,
+  siteURL,
+  ['sitemap-pages.xml', 'sitemap-articles.xml', 'sitemap-logs.xml', 'sitemap-tags.xml'],
+)
+CreateSitemapStylesheet(
+  path.resolve('./public/sitemap.xsl'),
+  pathPrefix,
+  siteURL,
+)
