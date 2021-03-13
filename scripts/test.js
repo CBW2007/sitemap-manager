@@ -181,45 +181,46 @@ if (exists('public'))
   })
 }
 console.log('create public folder')
-mkDir('public')
+mkDir('./public')
+mkDir('./public/aaa')
 
 console.log('create sitemaps')
 CreateSitemap(
-  path.resolve('./public/sitemap-articles.xml'),
+  path.resolve('./public/aaa/sitemap-articles.xml'),
   pathPrefix,
   siteURL,
   data.postsQuery.edges,
   (data) => { return data.node.fields.slug },
 )
 CreateSitemap(
-  path.resolve('./public/sitemap-logs.xml'),
+  path.resolve('./public/aaa/sitemap-logs.xml'),
   pathPrefix,
   siteURL,
   data.postsQuery.edges,
   (data) => { return data.node.fields.slug + 'changelog/' },
 )
 CreateSitemap(
-  path.resolve('./public/sitemap-tags.xml'),
+  path.resolve('./public/aaa/sitemap-tags.xml'),
   pathPrefix,
   siteURL,
   data.tagsQuery.group,
   (data) => { return `/tags/${data.fieldValue}/` },
 )
 CreateSitemap(
-  path.resolve('./public/sitemap-pages.xml'),
+  path.resolve('./public/aaa/sitemap-pages.xml'),
   pathPrefix,
   siteURL,
   ['/pages/', '/settings/'],
   (data) => { return data },
 )
 CreateIndexSitemap(
-  path.resolve('./public/sitemap.xml'),
+  path.resolve('./public/aaa/sitemap.xml'),
   pathPrefix,
   siteURL,
   ['sitemap-pages.xml', 'sitemap-articles.xml', 'sitemap-logs.xml', 'sitemap-tags.xml'],
 )
 CreateSitemapStylesheet(
-  path.resolve('./public/sitemap.xsl'),
+  path.resolve('./public/aaa/sitemap.xsl'),
   pathPrefix,
   siteURL,
 )
