@@ -1,3 +1,12 @@
+## [1.1.1](https://github.com/CBW2007/sitemap-manager/compare/v1.1.0...v1.1.1) (2021-03-13)
+
+
+### Bug Fixes
+
+* **stylesheet:** remove unneeded iamges count ([d2fa5d5](https://github.com/CBW2007/sitemap-manager/commit/d2fa5d59ca6e218dfb7486234ea4da85ac9ef0a0))
+
+
+
 # [1.1.0](https://github.com/CBW2007/sitemap-manager/compare/v1.0.0...v1.1.0) (2021-03-11)
 
 
