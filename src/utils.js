@@ -103,9 +103,8 @@ export const xmlStylesheetTemplate = (url) => { return (
                         <table id="sitemap" cellpadding="3">
                             <thead>
                                 <tr>
-                                    <th width="70%">URL (<xsl:value-of select="count(sitemap:urlset/sitemap:url)"/> total)</th>
-                                    <th width="15%">Images</th>
-                                    <th title="Last Modification Time" width="15%">Last Modified</th>
+                                    <th width="75%">URL (<xsl:value-of select="count(sitemap:urlset/sitemap:url)"/> total)</th>
+                                    <th title="Last Modification Time" width="25%">Last Modified</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -120,9 +119,6 @@ export const xmlStylesheetTemplate = (url) => { return (
                                             <a href="{$itemURL}">
                                                 <xsl:value-of select="sitemap:loc"/>
                                             </a>
-                                        </td>
-                                        <td>
-                                            <xsl:value-of select="count(image:image)"/>
                                         </td>
                                         <td>
                                             <xsl:value-of select="concat(substring(sitemap:lastmod,0,11),concat(' ', substring(sitemap:lastmod,12,5)))"/>
