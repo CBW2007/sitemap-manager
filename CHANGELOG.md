@@ -1,3 +1,18 @@
+# [2.0.0](https://github.com/CBW2007/sitemap-manager/compare/v1.1.1...v2.0.0) (2021-07-24)
+
+
+### Bug Fixes
+
+* **main:** it's urlset instead of urlindex ([90de614](https://github.com/CBW2007/sitemap-manager/commit/90de614156d8db37173d1b71c7410874dc744893))
+
+
+### Features
+
+* **stylesheet:** add new stylesheet ([ee91970](https://github.com/CBW2007/sitemap-manager/commit/ee919703431de068e3d1957fdb4835ab256cf91c))
+* v1 -> v2 ([cab316c](https://github.com/CBW2007/sitemap-manager/commit/cab316cdeafa2ac01900003e9d9348f3c99c778e))
+
+
+
 ## [1.1.1](https://github.com/CBW2007/sitemap-manager/compare/v1.1.0...v1.1.1) (2021-03-13)
 
 
