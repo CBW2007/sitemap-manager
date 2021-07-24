@@ -1,5 +1,4 @@
 import fs from 'fs'
-import _ from 'lodash'
 import xml from 'xml'
 import { URL } from 'url'
 import moment from 'moment'

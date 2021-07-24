@@ -23,13 +23,11 @@
   },
   "homepage": "https://github.com/CBW2007/sitemap-manager#readme",
   "dependencies": {
-    "lodash": "^4.17.21",
     "moment": "^2.29.1",
     "xml": "^1.0.1"
   },
   "devDependencies": {
     "@tsconfig/node12": "^1.0.9",
-    "@types/lodash": "^4.14.170",
     "@types/xml": "^1.0.5",
     "typescript": "^4.3.5"
   }
