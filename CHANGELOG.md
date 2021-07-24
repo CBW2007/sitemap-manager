@@ -1,3 +1,12 @@
+## [2.0.1](https://github.com/CBW2007/sitemap-manager/compare/v2.0.0...v2.0.1) (2021-07-24)
+
+
+### Bug Fixes
+
+* **index:** correct wrong entry ([8f81e49](https://github.com/CBW2007/sitemap-manager/commit/8f81e4971eb6d244b4d8f6eac83375119c938686))
+
+
+
 # [2.0.0](https://github.com/CBW2007/sitemap-manager/compare/v1.1.1...v2.0.0) (2021-07-24)
 
 
