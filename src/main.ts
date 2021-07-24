@@ -20,7 +20,7 @@ function DateConverter (date: Date | string): string {
 
 class SitemapManager {
   options: Option
-  _urlDatas: Map<string, Array<Url>> = new Map
+  #urlDatas: Map<string, Array<Url>> = new Map
   isFinished: Boolean = false
 
   constructor(options: Option) {
@@ -30,7 +30,7 @@ class SitemapManager {
   addUrl(name: string, url: Array<Url>): void {
     if (this.isFinished)
       throw new Error('[SitemapManager]Error: Lifecycle finished')
-    this._urlDatas.set(name, [...(this._urlDatas.get(name)||[]),...url])
+    this.#urlDatas.set(name, [...(this.#urlDatas.get(name)||[]),...url])
   }
 
   finish(): Promise<void> {
@@ -38,7 +38,7 @@ class SitemapManager {
       if (this.isFinished)
         reject('[SitemapManager]Error: Lifecycle finished')
       var xmlContents:Array<any> = []
-      this._urlDatas.forEach((v,k)=>{
+      this.#urlDatas.forEach((v,k)=>{
         xmlContents.push({
           sitemap: [
             { loc: new URL(path.join(this.options.pathPrefix||'',`sitemap-${k}.xml`),this.options.siteURL).toString() },
@@ -53,7 +53,7 @@ class SitemapManager {
       } catch (e) {
         reject(`[SitemapManager]: Failed to write file sitemap.xml: ${e.message}`)
       }
-      this._urlDatas.forEach((value,key)=>{
+      this.#urlDatas.forEach((value,key)=>{
         xmlContents=[]
         value.forEach((node) => {
           var ele:Array<any> = [{loc: node.loc}]
