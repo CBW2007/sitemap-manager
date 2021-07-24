@@ -65,7 +65,7 @@ class SitemapManager {
 //        console.log(JSON.stringify(xmlContents))
         try {
           fs.writeFileSync(path.resolve(this.options?.outDir||'./public',`sitemap-${key}.xml`),
-          xml({urlindex: [{_attr:{xmlns: 'http://www.sitemaps.org/schemas/sitemap/0.9'}}, ...xmlContents]}, {declaration: {encoding: 'UTF-8'}}))
+          xml({urlset: [{_attr:{xmlns: 'http://www.sitemaps.org/schemas/sitemap/0.9'}}, ...xmlContents]}, {declaration: {encoding: 'UTF-8'}}))
         } catch (e) {
           reject(`[SitemapManager]: Failed to write file sitemap-${key}.xml: ${e.message}`)
         }
