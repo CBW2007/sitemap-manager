@@ -1,4 +1,4 @@
-const { SitemapManager } = require('../dist/main')
+const { SitemapManager } = require('../dist/index')
 const fs = require('fs')
 
 if (fs.existsSync('./public'))
