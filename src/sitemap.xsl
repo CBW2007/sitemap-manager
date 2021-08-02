@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xsl:stylesheet version="1.0"
 	xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-	xmlns:sitemap="http://www.sitemaps.org/schemas/sitemap/0.9">
+	xmlns:sitemap="http://www.sitemaps.org/schemas/sitemap/0.9"
+	xmlns:fn="http://www.w3.org/2005/02/xpath-functions">
 
 <xsl:template match="/">
 	<html>
@@ -28,42 +29,64 @@
 				<xsl:if test="count(sitemap:sitemapindex/sitemap:sitemap) &lt; 1">
 					<a href="sitemap.xml" class="mdui-btn a-no-ul"><i class="mdui-icon material-icons">&#xe31b;</i>back to index</a>
 				</xsl:if>
-				<table class="mdui-table">
-					<thead>
-						<tr>
-							<th style="width:80%">URL</th>
-							<th style="width:20%">Last modified</th>
-						</tr>
-					</thead>
-					<tbody>
-						<xsl:for-each select="sitemap:urlset/sitemap:url">
+				<xsl:if test="count(sitemap:sitemapindex/sitemap:sitemap) &lt; 1">
+					<table class="mdui-table">
+						<thead>
 							<tr>
-								<td>
-									<xsl:variable name='locUrl'>
-										<xsl:value-of select="sitemap:loc" />
-									</xsl:variable>
-									<a href="{$locUrl}"><xsl:value-of select="sitemap:loc" /></a>
-								</td>
-								<td>
-									<xsl:value-of select="sitemap:lastmod" />
-								</td>
+								<th style="width:70%">URL</th>
+								<th style="width:20%">Last modification time</th>
+								<th style="width:5%">Change frequence</th>
+								<th style="width:5%">Priority</th>
 							</tr>
-						</xsl:for-each>
-						<xsl:for-each select="sitemap:sitemapindex/sitemap:sitemap">
+						</thead>
+						<tbody>
+							<xsl:for-each select="sitemap:urlset/sitemap:url">
+								<tr>
+									<td>
+										<xsl:variable name='locUrl'>
+											<xsl:value-of select="sitemap:loc" />
+										</xsl:variable>
+										<a href="{$locUrl}"><xsl:value-of select="sitemap:loc" /></a>
+									</td>
+									<td>
+										<xsl:value-of select="sitemap:lastmod" />
+									</td>
+									<td>
+										<xsl:value-of select="sitemap:changefreq" />
+									</td>
+									<td>
+										<xsl:value-of select="sitemap:priority" />
+									</td>
+								</tr>
+							</xsl:for-each>
+						</tbody>
+					</table>
+				</xsl:if>
+				<xsl:if test="count(sitemap:sitemapindex/sitemap:sitemap) &gt; 0">
+					<table class="mdui-table">
+						<thead>
 							<tr>
-								<td>
-									<xsl:variable name='locUrl'>
-										<xsl:value-of select="sitemap:loc" />
-									</xsl:variable>
-									<a href="{$locUrl}"><xsl:value-of select="sitemap:loc" /></a>
-								</td>
-								<td>
-									<xsl:value-of select="sitemap:lastmod" />
-								</td>
+								<th style="width:80%">URL</th>
+								<th style="width:20%">Last modification time</th>
 							</tr>
-						</xsl:for-each>
-					</tbody>
-				</table>
+						</thead>
+						<tbody>
+							<xsl:for-each select="sitemap:sitemapindex/sitemap:sitemap">
+								<tr>
+									<td>
+										<xsl:variable name='locUrl'>
+											<xsl:value-of select="sitemap:loc" />
+										</xsl:variable>
+										<a href="{$locUrl}"><xsl:value-of select="sitemap:loc" /></a>
+									</td>
+									<td>
+										<xsl:value-of select="sitemap:lastmod" />
+									</td>
+								</tr>
+							</xsl:for-each>
+						</tbody>
+					</table>
+				</xsl:if>
 			</div>
 			<!-- MDUI JavaScript -->
 			<script
