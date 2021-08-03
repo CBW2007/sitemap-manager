@@ -15,7 +15,7 @@ interface Option {
 interface Url {
   loc: string,
   lastmod?: string | Date,
-  changefreq?: string | number,
+  changefreq?: 'never' | 'yearly' | 'monthly' | 'weekly' | 'daily' | 'hourly' | 'always' | 1 | 2 | 3 | 4 | 5 | 6 | 7,
   priority?: number
 }
 
@@ -67,7 +67,7 @@ class SitemapManager {
           if (node.lastmod) ele.push({ lastmod: dateConverter(node.lastmod) })
           if (node.changefreq &&
             ((typeof (node.changefreq) === 'number' && node.changefreq >= 1 && node.changefreq <= 7) ||
-            (typeof (node.changefreq) === 'string' && freqMap.includes(node.changefreq) && node.changefreq !== ''))) {
+            (typeof (node.changefreq) === 'string' && freqMap.includes(node.changefreq)))) {
             ele.push({ changefreq: typeof (node.changefreq) === 'string' ? node.changefreq : freqMap[node.changefreq] })
           } else if (node.changefreq) {
             reject(new Error(`[SitemapManager] Invalid changefreq value: Expects a number ranges from 1 to 7(1 for the least, 7 for the most) or a string. See more: https://www.sitemaps.org/protocol.html#xmlTagDefinitions. Received ${node.changefreq}`))
