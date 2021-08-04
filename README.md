@@ -49,7 +49,7 @@ Step5. Finish!
 MySitemap.finish().then(()=>{/*sth here*/}).catch((e)=>{/*sth here*/})
 ```
 
-Checkout [Wiki](https://github.com/CBW2007/sitemap-manager/wiki) for more information.
+Check [Wiki](https://github.com/CBW2007/sitemap-manager/wiki) for more information.
 
 ## LICENSE
 
