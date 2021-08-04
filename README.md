@@ -16,7 +16,7 @@ Step 1. Install sitemap-manager.
 npm install sitemap-manager --save
 
 // For yarn users
-yarn add sitemap manager
+yarn add sitemap-manager
 ```
 
 Step2. Import sitemap-manager
