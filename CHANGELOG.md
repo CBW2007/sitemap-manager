@@ -1,3 +1,13 @@
+# [2.1.0](https://github.com/CBW2007/sitemap-manager/compare/v2.0.1...v2.1.0) (2021-08-04)
+
+
+### Features
+
+* add more type tips of sitemap elements ([c19ca87](https://github.com/CBW2007/sitemap-manager/commit/c19ca876c295fd3d0df66cde1bc1bdd7fc79a6a1))
+* add support of other sitemap elements ([2d9f820](https://github.com/CBW2007/sitemap-manager/commit/2d9f8207010878289512deb930020b955f8fec27))
+
+
+
 ## [2.0.1](https://github.com/CBW2007/sitemap-manager/compare/v2.0.0...v2.0.1) (2021-07-24)
 
 
