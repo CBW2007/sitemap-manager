@@ -29,24 +29,24 @@ MySitemap.addUrl('pro', [
 //  { loc: 'https://example.com/aaa/c/c', priority: -1 } // wrong case
 ])
 
-MySitemap.addUrl('mix', [{
+MySitemap.addUrl('mix', {
   loc: 'https://example.com/aaa/d/a'
-}])
-MySitemap.addUrl('mix', [{
+})
+MySitemap.addUrl('mix', {
   loc: 'https://example.com/aaa/d/b',
   changefreq: 3,
   lastmod: new Date()
-}])
-MySitemap.addUrl('mix', [{
+})
+MySitemap.addUrl('mix', {
   loc: 'https://example.com/aaa/d/c',
   priority: 0.1,
   lastmod: new Date('1949-10-01T08:00:00')
-}])
-MySitemap.addUrl('mix', [{
+})
+MySitemap.addUrl('mix', {
   loc: 'https://example.com/aaa/d/d',
   changefreq: 'always',
   lastmod: '2007-03-13T08:00:00',
   priority: 0.9
-}])
+})
 
 MySitemap.finish()
