@@ -24,13 +24,9 @@
     "url": "https://github.com/CBW2007/sitemap-manager/issues"
   },
   "homepage": "https://github.com/CBW2007/sitemap-manager#readme",
-  "dependencies": {
-    "xml": "^1.0.1"
-  },
   "devDependencies": {
     "@tsconfig/node12": "^1.0.9",
     "@types/node": "^16.9.1",
-    "@types/xml": "^1.0.5",
     "@typescript-eslint/eslint-plugin": "^4.28.5",
     "@typescript-eslint/parser": "^4.28.5",
     "eslint": "^7.32.0",
