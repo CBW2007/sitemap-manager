@@ -1,7 +1,7 @@
 const { SitemapManager } = require('../dist/index')
 const fs = require('fs')
 
-if (fs.existsSync('./public')) { fs.rmdirSync('./public', { recursive: true }) }
+if (fs.existsSync('./public')) { fs.rmSync('./public', { recursive: true }) }
 fs.mkdirSync('./public')
 
 const MySitemap = new SitemapManager({
