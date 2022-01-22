@@ -10,7 +10,7 @@ const xmlDeclaration = '<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet t
 const xmlns = 'http://www.sitemaps.org/schemas/sitemap/0.9'
 
 class SitemapManager {
-  options: Options
+  options: FullOptions
   #urlDatas: {
     [category: string]: string
   } = {}
@@ -18,7 +18,15 @@ class SitemapManager {
   #isFinished: Boolean = false
 
   constructor (options: Options) {
-    this.options = options
+    this.options = {
+      outDir: options.outDir || './public',
+      siteURL: options.siteURL,
+      pathPrefix: options.pathPrefix || '',
+      hooks: {
+        warningHandler: options.hooks?.warningHandler || utils.defaultHookSet.defaultWarningHandler,
+        fileHandler: options.hooks?.fileHandler || utils.defaultHookSet.defaultFileHandler
+      }
+    }
   }
 
   addUrl (category: string, url: UrlObj[] | UrlObj): void {
@@ -40,7 +48,7 @@ class SitemapManager {
         xmlContents = xmlContents + `<sitemap>${utils.objToString({ loc: new URL(path.join(this.options.pathPrefix || '', `sitemap-${category}.xml`), this.options.siteURL), lastmod: new Date() })}</sitemap>`
       }
       try {
-        fs.writeFileSync(
+        this.options.hooks.fileHandler(
           path.resolve(this.options?.outDir || './public', 'sitemap.xml'),
           xmlDeclaration + `<sitemapindex xmlns="${xmlns}">${xmlContents}</sitemapindex>`
         )

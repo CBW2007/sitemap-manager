@@ -1,9 +1,29 @@
 import { URL } from 'url'
 
+export type WarningHandler = (msg: string) => void
+
+export type FileHandler = (file: string, data: string) => void
+
+interface HookSet {
+  warningHandler?: WarningHandler,
+  fileHandler?: FileHandler
+}
+
+export interface FullOptions {
+  outDir: string,
+  siteURL: string,
+  pathPrefix: string,
+  hooks: {
+    warningHandler: WarningHandler,
+    fileHandler: FileHandler
+  }
+}
+
 export interface Options {
   outDir?: string,
   siteURL: string,
-  pathPrefix?: string
+  pathPrefix?: string,
+  hooks?: HookSet
 }
 
 export interface UrlObj {

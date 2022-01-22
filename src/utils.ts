@@ -1,6 +1,18 @@
-import { UrlObj } from './types'
+import { UrlObj, WarningHandler, FileHandler } from './types'
+import * as fs from 'fs'
 
 const freqMap = ['', 'never', 'yearly', 'monthly', 'weekly', 'daily', 'hourly', 'always']
+
+const defaultWarningHandler: WarningHandler = (msg) => {
+  throw new Error(msg)
+}
+
+const defaultFileHandler: FileHandler = fs.writeFileSync
+
+export const defaultHookSet = {
+  defaultWarningHandler,
+  defaultFileHandler
+}
 
 export function dateConverter (date: Date | string): string {
   return new Date(date).toISOString()
