@@ -1,3 +1,21 @@
+# [2.2.0](https://github.com/CBW2007/sitemap-manager/compare/v2.1.0...v2.2.0) (2022-01-22)
+
+
+### Bug Fixes
+
+* **main:** fix a bug that makes "isFinished" not work ([7be745f](https://github.com/CBW2007/sitemap-manager/commit/7be745fb6002a22b8047863bffb2a60ba3e3e9bf))
+* **test:** remove rmDirSync, use rmSync instead ([0af6a53](https://github.com/CBW2007/sitemap-manager/commit/0af6a532909e98bb0d015ad8137080f64723337b))
+
+
+### Features
+
+* add checks of the repeated and invalid url ([343ef17](https://github.com/CBW2007/sitemap-manager/commit/343ef17c485d75eb682fb4a72496d28327a90bc6))
+* add hooks ([cfab1e9](https://github.com/CBW2007/sitemap-manager/commit/cfab1e99f9f782c9ac84f74fdcdd96f523335a85))
+* allow to add single url obj ([789c48e](https://github.com/CBW2007/sitemap-manager/commit/789c48e7a0b83293f95be23a0ce148c07edfab80))
+* export types as well ([5fc8d18](https://github.com/CBW2007/sitemap-manager/commit/5fc8d1884e1fb15027d0dc38c8d3aa5eccfc5718))
+
+
+
 # [2.1.0](https://github.com/CBW2007/sitemap-manager/compare/v2.0.1...v2.1.0) (2021-08-04)
 
 
