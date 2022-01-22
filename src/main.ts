@@ -15,14 +15,14 @@ class SitemapManager {
     [category: string]: string
   } = {}
 
-  isFinished: Boolean = false
+  #isFinished: Boolean = false
 
   constructor (options: Options) {
     this.options = options
   }
 
   addUrl (category: string, url: UrlObj[] | UrlObj): void {
-    if (this.isFinished) { throw new Error('[SitemapManager] Error: Lifecycle finished') }
+    if (this.#isFinished) { throw new Error('[SitemapManager] Error: Lifecycle finished') }
     if (!Array.isArray(url)) url = [url]
     url.forEach((value) => {
       this.#urlDatas[category] = this.#urlDatas[category] + `<url>${utils.objToString(value)}</url>`
@@ -31,7 +31,8 @@ class SitemapManager {
 
   finish (): Promise<void> {
     return new Promise((resolve, reject) => {
-      if (this.isFinished) { reject(new Error('[SitemapManager] Error: Lifecycle finished')) }
+      if (this.#isFinished) { reject(new Error('[SitemapManager] Error: Lifecycle finished')) }
+      this.#isFinished = true
 
       // Create index sitemap
       let xmlContents = ''
